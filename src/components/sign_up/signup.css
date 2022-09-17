@@ -1,0 +1,149 @@
+.sign_body{
+    background-color: #181d24;
+}
+.signu{
+    /* margin-top: 100px; */
+    /* margin-bottom: 30px; */
+    position: relative;
+    top: 20px;
+}
+.wel{
+   color: #4cc128;
+   font-family: 'Dancing Script', cursive;
+font-family: 'Edu VIC WA NT Beginner', cursive;
+font-family: 'Lobster', cursive;
+font-family: 'Oswald', sans-serif;
+font-family: 'ZCOOL QingKe HuangYou', cursive;
+font-size: 38px;
+position: relative;
+top: 30px;
+}
+.sign{
+    font-family: 'Dancing Script', cursive;
+    font-family: 'Edu VIC WA NT Beginner', cursive;
+    font-family: 'Lobster', cursive;
+    font-family: 'Oswald', sans-serif;
+    /* font-family: 'ZCOOL QingKe HuangYou', cursive; */
+    font-size: 23px!important;
+    letter-spacing: 1px;
+}
+.main{
+    background-color: antiquewhite;
+    border-radius: 10px;
+    width: 450px;
+    height: 750px!important;
+    margin-bottom: 20px;
+}
+.flex{
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+    align-items: center;
+}
+.set_drafts_icon{
+    display: flex;
+   flex-direction: column;
+   /* align-items: center; */
+  
+}
+.set_pass_icon{
+    display: flex;
+    flex-direction: column;
+
+}
+.mail_icon{
+   z-index: 1;
+   position: relative;
+  top: calc(50%);
+  left: 10px;
+  color: #4cc128;
+  font-size: 22px!important;
+}
+.pass_icon{
+    z-index: 1;
+   position: relative;
+  top: 38px;
+  left: 10px;
+  color: #4cc128;
+  font-size: 22px!important;
+}
+.main{
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+}
+.heading{
+    text-align: center;
+    color: aliceblue;
+    /* margin-top: 20px; */
+}
+.signupinput{
+    width: 320px;
+    height: 50px;
+    font-size: 18px;
+    /* margin-top: 10px; */
+    padding: 10px 10px 10px 40px;
+    /* margin-bottom: 5px; */
+   border: none;
+   border-radius: 5px;
+}
+.pass{
+    margin-top: 5px;
+    font-size: 23px;
+    /* position: relative;
+    top: 30px; */
+    font-family: 'Dancing Script', cursive;
+font-family: 'Edu VIC WA NT Beginner', cursive;
+font-family: 'Lobster', cursive;
+font-family: 'Oswald', sans-serif;
+font-family: 'ZCOOL QingKe HuangYou', cursive;
+}
+.setdiv{
+    position: relative;
+    bottom: 20px;
+}
+.email{
+    font-size: 23px; 
+    position: relative;
+    top: 30px;
+    font-family: 'Dancing Script', cursive;
+font-family: 'Edu VIC WA NT Beginner', cursive;
+font-family: 'Lobster', cursive;
+font-family: 'Oswald', sans-serif;
+font-family: 'ZCOOL QingKe HuangYou', cursive;
+}
+.signUp_btn{
+    width: 320px;
+    /* margin-top: 10px; */
+    padding: 10px 20px 10px 20px;
+    border: none;
+    background-color: #4cc128;
+    color: white;
+    font-family: 'Dancing Script', cursive;
+    font-family: 'Edu VIC WA NT Beginner', cursive;
+    font-family: 'Lobster', cursive;
+    font-family: 'Oswald', sans-serif;
+    /* font-family: 'ZCOOL QingKe HuangYou', cursive; */
+    letter-spacing: 1px;
+    font-size: 20px;
+    position: relative;
+    bottom: 20px!important;
+}
+.already{
+    position: relative;
+    bottom: 10px;
+}
+.input_setup{
+    display: flex;
+    flex-direction: column;
+    margin-top: 50px;
+    position: relative;
+    bottom: 40px;
+    
+}
+.validation{
+    /* margin-top: 10px; */
+    color: red;
+    /* display: none; */
+}
