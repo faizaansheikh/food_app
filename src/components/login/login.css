@@ -1,11 +1,30 @@
-.login_body{
+/* body{
+    height: 100vh;
+    bottom: 0;
+} */
+/* #root{
+    height: 100vh;
     background-color: #181d24;
-    height: 30%;
-    width: 100%;
-    z-index: 1;
+} */
+.login_body::before{
+   content: "";
+   position: fixed;
+   top: 0;
+   left: 0;
+   right: 0;
+   bottom: 0;
+   height: 100vh;
+   z-index: -1;
+    background-color: #181d24;
+ 
+}
+.login_img{
+    position: relative;
+    top: 30px;
 }
 .loginc{
-    margin-top: 50px;
+    /* margin-top: 50px; */
+    padding: 50px 0;
 }
 .wel{
    color: #4cc128;
@@ -63,7 +82,7 @@ img{
 .mail_icon{
    z-index: 1;
    position: relative;
-  top: calc(50%);
+  top: 40px!important;
   left: 10px;
   color: #4cc128;
   font-size: 22px!important;
@@ -96,6 +115,7 @@ input{
     /* margin-bottom: 5px; */
    border: none;
    border-radius: 5px;
+
 }
 .pass{
     margin-top: 5px;
@@ -122,7 +142,7 @@ font-family: 'Lobster', cursive;
 font-family: 'Oswald', sans-serif;
 font-family: 'ZCOOL QingKe HuangYou', cursive;
 }
-button{
+.login_btn{
     width: 320px;
     /* margin-top: 10px; */
     padding: 10px 20px 10px 20px;
@@ -149,4 +169,10 @@ button{
     position: relative;
     bottom: 70px;
     
+}
+.already_signup{
+    color: #296417;
+}
+.already_signup:hover{
+    cursor: pointer;
 }

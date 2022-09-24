@@ -1,4 +1,12 @@
-.sign_body{
+.sign_body::before{
+    content: "";
+   position: fixed;
+   top: 0;
+   left: 0;
+   right: 0;
+   bottom: 0;
+   height: 100vh;
+   z-index: -1;
     background-color: #181d24;
 }
 .signu{
@@ -8,8 +16,8 @@
     top: 20px;
 }
 .wel{
-   color: #4cc128;
-   font-family: 'Dancing Script', cursive;
+    color: #4cc128;
+    font-family: 'Dancing Script', cursive;
 font-family: 'Edu VIC WA NT Beginner', cursive;
 font-family: 'Lobster', cursive;
 font-family: 'Oswald', sans-serif;
@@ -31,7 +39,7 @@ top: 30px;
     background-color: antiquewhite;
     border-radius: 10px;
     width: 450px;
-    height: 750px!important;
+    height: 700px!important;
     margin-bottom: 20px;
 }
 .flex{
@@ -146,4 +154,10 @@ font-family: 'ZCOOL QingKe HuangYou', cursive;
     /* margin-top: 10px; */
     color: red;
     /* display: none; */
+}
+.already_signin{
+    color: #296417;
+}
+.already_signin:hover{
+    cursor: pointer;
 }
