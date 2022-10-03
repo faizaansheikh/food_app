@@ -19,7 +19,7 @@ function Contact() {
         <button className='cont_btn'>SUBMIT</button>
     </div>
     <div className="box2">
-        <img src={contact} width="110%" alt="" />
+        <img src={contact} width="100%" alt="" />
     </div>
    </div>
    </>
