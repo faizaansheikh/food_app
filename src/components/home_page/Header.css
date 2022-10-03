@@ -6,6 +6,12 @@
     background-color: #181d24;
     color: white;
     height: 90px;
+    position: sticky!important;
+   top: 0;
+   left: 0;
+   right: 0;
+   bottom: 0;
+   z-index: 1;
   }
 
   .header_image {
@@ -50,7 +56,10 @@ left: 100px;
 }
 .left_icon{
   margin: 0px 10px 0px 20px;
+  color: beige;
+  font-size: 56px;
 }
+
 .left_btn{
   margin: 0px 10px 0px 10px;
   padding: 8px 10px 8px 10px;
@@ -311,4 +320,8 @@ border-radius: 33px;
   justify-content: space-around;
   align-items: center;
   flex-wrap: wrap;
+}
+.badge{
+position: absolute;
+right: -48px;
 }

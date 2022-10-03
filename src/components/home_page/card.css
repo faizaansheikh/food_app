@@ -1,0 +1,109 @@
+.card_main{
+    display: flex;
+    justify-content: space-evenly;
+    align-items: center;
+    flex-direction: row;
+    border: 3px solid grey;
+    
+}
+@media screen and (max-width: 840px) {
+    .card_main {
+        display: flex;
+        flex-direction: column;
+    }
+  }
+.parent_card{
+    display: flex;
+    flex-direction: column;
+}
+
+.your_items{
+    text-align: center;
+    padding: 50px;
+}
+.plus_icon{
+    color: black;
+    font-size: 45px!important;
+}
+@media screen and (max-width: 840px) {
+    .plus_icon {
+        font-size: 35px!important;
+    }
+  }
+.plus_icon:hover{
+    cursor: pointer;
+}
+.incr{
+    display: flex;
+    align-items: center;
+}
+.rs{
+    font-size: 25px;
+}
+@media screen and (max-width: 840px) {
+    .banana {
+      position: relative;
+      top: 20px;
+    }
+    .ban_img{
+        position: relative;
+        top: 20px;
+    }
+    .rs{
+        position: relative;
+        bottom: 10px;
+        font-size: 25px;
+    }
+  }
+.card_img{
+    border-radius: 30px;
+}
+@media screen and (max-width: 840px) {
+    .card_img {
+        border-radius: 5px;
+        width: 165px;
+    }
+  }
+.orders_btn{
+    display: flex;
+    /* justify-content: first baseline; */
+    align-items: flex-end;
+    font-size: 25px;
+    padding: 10px;
+  
+}
+.ord_btn{
+    background-color: #57c934;
+    border: none;
+    color: aliceblue;
+    padding: 10px;
+    border-radius: 8px;
+    /* box-shadow: 2px 2px 10px black; */
+}
+.ord_btn:hover{
+    background-color: #57da2f;
+}
+.order_now{
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    background-color: rgb(245, 237, 227);
+    padding: 15px;
+    box-shadow: 2px 2px 35px black;
+    position: sticky;
+}
+.items{
+  padding: 10px;
+}
+.del_ico{
+    border: none;
+   background-color: none;
+}
+.remove_icom{
+    font-size: 33px!important;
+    color: red;
+}
+.remove_icom:hover {
+    color: rgb(194, 5, 5);
+}

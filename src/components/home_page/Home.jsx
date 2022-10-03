@@ -2,6 +2,7 @@ import React from 'react'
 import { useEffect, useState } from "react";
 import "./home.css"
 import Header from './Header'
+import Footer from './Footer';
 import Section1 from './Section1'
 
 import { HashLoader } from "react-spinners";
@@ -29,6 +30,7 @@ function Home() {
       <Header/>
       <Section1/>
       <Contact/>
+      {/* <Footer/> */}
       </>
     )
     }

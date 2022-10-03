@@ -1,13 +1,7 @@
-import React, { useEffect, useState} from 'react'
+import React, { useEffect, useState } from 'react'
 import Header from './Header';
 import "./Menuitems.css"
-// import data from '../../data'
-// import cart_image from "../images/image1.jpg";
-import bbq from "../images/bbq.jpg";
-import shakes from "../images/shakes.jpg";
-import burger from "../images/burger.jpg";
-import steak from "../images/steak.jpg";
-import Card from './Card';
+import Card from './singleProduct';
 // import { Link, useNavigate } from 'react-router-dom';
 import { Link } from 'react-scroll';
 import axios from 'axios';
@@ -15,28 +9,39 @@ import axios from 'axios';
 
 function MenuItems() {
   const [item, setItems] = useState([])
+  const [item1, setItems1] = useState([])
   const [show, setShow] = useState(false)
 
 
   const filterCate = (myCategory) => {
-    const updatedCate = item.filter((element) => {
+    const updatedCate = item1.filter((element) => {
       return element.category === myCategory
-      //  console.log(element);
     })
-    setItems(updatedCate)
+    
+    // const myName = item.filter((elem)=>{
+    //   return elem.category === myCategory
+    // })
+    // setItems(myName)
+    setItems1(updatedCate)
     setShow(true)
 
   }
 
+  const fetchData = async () => {
+    const category = await axios.get("http://192.168.1.112:4000/categories")
+    setItems(category.data)
+    // console.log(item);
+    const productse = await axios.get("http://192.168.1.112:4000/products")
+    setItems1(productse.data)
+    // console.log(item1);
+  }
 
   useEffect(() => {
-    axios
-  .get("http://192.168.2.112:4000/products")
-  .then((res) => setItems(res.data))
-  // console.log(item)
-  .catch((err) => console.log("error", err))
+
+    fetchData()
+
   }, [])
-  // console.log(item);
+
   return (
     <>
       <Header />
@@ -44,57 +49,47 @@ function MenuItems() {
         <h2 className='menu'>MENU</h2>
 
         <div className="buton_flex">
-          <div className="bbq">
-            <Link onClick={() => filterCate("shakes")} className='bbq_link' to="hero">
+          {
+            item.map((elem) => {
+              return (
+                <>
+                  <div className="bbq">
+                    <Link onClick={() => filterCate(elem.category)} className='bbq_link' to="hero">
 
-              <img className='bbq_img' src={shakes} width="90%" alt="" /> <br />  <br />
-              <h3>SHAKES</h3>
+                      <img className='bbq_img' src={elem.image} width="300px" alt="" /> <br />  <br />
+                      <h3>{elem.name}</h3>
 
-            </Link>
-          </div>
-          <div className="bbq">
-            <Link onClick={() => filterCate("bbq")} className='bbq_link' to="hero">
+                    </Link>
+                  </div>
+                </>
+              )
+            })
+          }
 
-              <img className='bbq_img' src={bbq} width="90%" alt="" /> <br /> <br />
-              <h3>BBQ</h3>
-
-            </Link>
-          </div>
-          <div className="bbq">
-            <Link onClick={() => filterCate("burger")} className='bbq_link' to="hero">
-
-              <img className='bbq_img' src={burger} width="90%" alt="" /> <br /> <br />
-              <h3>BURGER</h3>
-
-            </Link>
-          </div>
-          <div className="bbq">
-            <Link onClick={() => filterCate("st")} className='bbq_link' to="hero">
-
-              <img className='bbq_img' src={steak} width="90%" alt="" />  <br /> <br />
-              <h3>STEAK</h3>
-
-            </Link>
-          </div>
         </div>
+
       </div>
+
       {
         show ? <div id='hero'>
-          <h2 className='f_main'>SHAKES</h2>
           <div className='Shakes_container'>
-            {
-              item.map((elem, index) => {
-                return (
-                  <Card
-                    id={elem._id}
-                    key={index}
-                    title={elem.name}
-                    image={elem.image}
-                    price={elem.price}
-                    category={elem.category}
-                    className="edit_cart"
 
-                  />
+
+            {
+              item1.map((elem, index) => {
+                return (
+                  <>
+                    <Card
+                      id={elem._id}
+                      key={index}
+                      title={elem.name}
+                      image={elem.image}
+                      price={elem.price}
+                      category={elem.category}
+                      className="edit_cart"
+
+                    />
+                  </>
 
                 )
               })

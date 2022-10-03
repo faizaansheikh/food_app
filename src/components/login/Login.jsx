@@ -22,7 +22,7 @@ export default function Login() {
     } else {
       
     }
-    const res = await fetch("http://192.168.2.112:4000/signin", {
+    const res = await fetch("http://192.168.1.112:4000/signin", {
         method: "POST",
         headers: {
           "Content-Type": "application/json"
@@ -33,10 +33,13 @@ export default function Login() {
         })
       })
       const data = await res.json();
+      //let {token} = data.userLogin
+      //console.log(token);
       if (res.status === 400 || !data) {
         window.alert("invalid registration")
         console.log("invalid registration");
       } else {
+      // localStorage.setItem("jwtoken", token)
         window.alert("registration success")
         console.log("registration success");
         navigate("/home")
