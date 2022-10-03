@@ -1,13 +1,13 @@
 import React from 'react'
 import Header from './Header'
 import "./card.css"
-import { Link, Navigate, useNavigate } from 'react-router-dom';
+import { useNavigate } from 'react-router-dom';
 import { useDispatch } from 'react-redux';
 import { useSelector } from 'react-redux';
 import AddCircleRoundedIcon from '@mui/icons-material/AddCircleRounded';
 import RemoveCircleRoundedIcon from '@mui/icons-material/RemoveCircleRounded';
 import { useState } from 'react';
-import { addCart, decrement, increment, removeCart, } from '../Actions/action';
+import {decrement, increment, removeCart} from '../Actions/action';
 import { useEffect } from 'react';
 import DeleteIcon from '@mui/icons-material/Delete';
 
@@ -18,9 +18,6 @@ function Card() {
     const [num, setNum] = useState(orders.length)
     const [cart, setCart] = useState([])
     const navigate = useNavigate();
-    // let prices = orders.map((elem) => {
-    //     return elem.price
-    // })
 
     const remove = (id) => {
         dispatch(removeCart(id))
@@ -36,7 +33,7 @@ function Card() {
         setNum(num - 1)
     }
     const checkOut = async () => {
-        const res = await fetch("http://192.168.1.112:4000/addOrders", {
+        const res = await fetch("https://hassanwebsite.herokuapp.com/addOrders", {
             method: "POST",
             headers: {
                 "Content-Type": "application/json"
@@ -50,14 +47,11 @@ function Card() {
         navigate("/orderSuccess")
         // },2000)
     }
-
     useEffect(() => {
-        // getTotalPrice()
+        
         setCart(orders)
-    }, [cart, plus, minus])
-
-    // console.log(total);
-
+        // eslint-disable-next-line
+    },  [cart, plus, minus] ) 
 
     return (
         <>
@@ -67,6 +61,7 @@ function Card() {
 
             {orders.length ? (
                 <>
+               
                     <h1 className='your_items'>Your Items</h1>
                     <div className="order_now">
                         <div className="total"><h1>Total price : {

@@ -6,15 +6,14 @@ import img2 from "../images/logo1.png";
 import ShoppingCartIcon from '@mui/icons-material/ShoppingCart';
 import NavMobile from "./NavMobile";
 import { Badge } from '@mui/material';
-import { useDispatch } from 'react-redux';
 import { useSelector } from 'react-redux';
-import { useState } from 'react';
-import { useEffect } from 'react';
+
+
 
 const Header = () => {
-  const dispatch = useDispatch();
+
   const orders = useSelector((state)=>state.cartReducer.cardData)
-  const[userName,setUserName] = useState("")
+
   // const userHomePage = async()=>{
   //   try{
   //     const res = await fetch("http://192.168.1.112:4000/getdata",{

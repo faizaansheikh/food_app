@@ -140,8 +140,9 @@ left: 100px;
   font-size: 25px;
  position: relative;
  right: 150px;
- z-index: -1;
+ /* z-index: -1; */
  margin-top: 10px;
+ text-decoration: none;
 }
 @media screen and (max-width: 674px) {
   .menu_btn {
@@ -152,6 +153,7 @@ left: 100px;
 .menu_btn:hover{
   background-color: #3f9c23;
   cursor: pointer;
+  color: aliceblue;
 }
 .lets{
   font-size: 65px;

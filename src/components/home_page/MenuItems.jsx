@@ -26,12 +26,12 @@ function MenuItems() {
     setShow(true)
 
   }
-
+  
   const fetchData = async () => {
-    const category = await axios.get("http://192.168.1.112:4000/categories")
+    const category = await axios.get("https://hassanwebsite.herokuapp.com/categories")
     setItems(category.data)
     // console.log(item);
-    const productse = await axios.get("http://192.168.1.112:4000/products")
+    const productse = await axios.get("https://hassanwebsite.herokuapp.com/products")
     setItems1(productse.data)
     // console.log(item1);
   }

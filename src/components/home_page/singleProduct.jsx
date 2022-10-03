@@ -5,9 +5,7 @@ import { Link } from "react-router-dom"
 // import  data  from '../../data'
 function singleProduct({ image, title, price, id }) {
 //   cons
-const addItem = ()=>{
-    console.log("working");
-  }
+
     return (
         <>
 

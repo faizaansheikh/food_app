@@ -46,7 +46,7 @@ function Signup() {
       setValidation4(false)
       setValidation5(true)
     }else{
-      const res = await fetch("http://192.168.1.112:4000/register",{
+      const res = await fetch("https://hassanwebsite.herokuapp.com/register",{
         method:"POST",
         headers:{
           "Content-Type" : "application/json"

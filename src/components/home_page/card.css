@@ -6,6 +6,7 @@
     border: 3px solid grey;
     
 }
+
 @media screen and (max-width: 840px) {
     .card_main {
         display: flex;

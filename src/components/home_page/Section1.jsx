@@ -2,14 +2,9 @@ import React from 'react'
 import "./Header.css";
 import img3 from "../images/plate.png";
 import img4 from "../images/image1.jpg";
-import { Navigate, useNavigate } from 'react-router-dom';
-// import "./node_modules/bootstrap/dist/css/bootstrap.min.css"
+import { Link } from 'react-router-dom';
 function Section1() {
-    const navigate = useNavigate();
-    const menuBtn = (e)=>{
-        e.preventDefault();
-        navigate("/menuitems")
-    }
+
     return (
         <>
 
@@ -18,7 +13,7 @@ function Section1() {
                 <div className="row">
                     <div className="col-12 col-sm-12 col-md-7 lets_flex">
                         <h1 className='lets'>ITS NOT JUST<br /> <span className='food'>FOOD</span>, ITS AN <br /> EXPERIENCE </h1>
-                        <button onClick={menuBtn} className='menu_btn'>MENU</button>
+                        <Link to="/menuitems" className='menu_btn'>MENU</Link>
                     </div>
                     <div className="col-12 col-sm-12 col-md-5 green_borderside">
                         <img className='plate' src={img3} alt="" />
@@ -40,7 +35,7 @@ function Section1() {
                     </div>
                 </div>
             </div>
-   {/* <Section1/> */}
+            {/* <Section1/> */}
         </>
     )
 }

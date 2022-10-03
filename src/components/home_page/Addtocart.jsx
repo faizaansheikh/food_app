@@ -2,27 +2,24 @@ import React, { useEffect, useState } from 'react'
 import Header from './Header'
 import axios from 'axios';
 import "./addtocart.css"
-import AddCircleRoundedIcon from '@mui/icons-material/AddCircleRounded';
-import RemoveCircleRoundedIcon from '@mui/icons-material/RemoveCircleRounded';
+
 import { useDispatch } from 'react-redux';
-import { useSelector } from 'react-redux';
 import {addCart} from '../Actions/action';
-import cartReducer from '../Reducers/reducer';
+
 function Addtocart() {
 
   const [product, setProduct] = useState([])
   // const [price,setPrice] = useState(product.price)
 
   const dispatch = useDispatch();
-  const orders = useSelector((state)=>state.cartReducer.cardData)
-  // console.log(orders);
+
 const order = ()=>{
   dispatch(addCart(product))
 }
   useEffect(() => {
 
     axios
-      .get(`http://192.168.1.112:4000/products/${window.location.href.split("/")[4]}`)
+      .get(`https://hassanwebsite.herokuapp.com/products/${window.location.href.split("/")[4]}`)
       .then((res) => setProduct(res.data))
       // console.log(product)
       .catch((err) => console.log("error", err))
