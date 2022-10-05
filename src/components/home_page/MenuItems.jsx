@@ -8,36 +8,33 @@ import axios from 'axios';
 
 
 function MenuItems() {
-  const [item, setItems] = useState([])
-  const [item1, setItems1] = useState([])
+  const [category, setCategory] = useState([])
+  const [product, setProduct] = useState([])
   const [show, setShow] = useState(false)
 
 
   const filterCate = (myCategory) => {
-    const updatedCate = item1.filter((element) => {
+    const updatedCate = product.filter((element) => {
       return element.category === myCategory
     })
     
-    // const myName = item.filter((elem)=>{
-    //   return elem.category === myCategory
-    // })
-    // setItems(myName)
-    setItems1(updatedCate)
+    setProduct(updatedCate)
     setShow(true)
 
   }
-  
+
   const fetchData = async () => {
+
     const category = await axios.get("https://hassanwebsite.herokuapp.com/categories")
-    setItems(category.data)
-    // console.log(item);
+    setCategory(category.data)
+
     const productse = await axios.get("https://hassanwebsite.herokuapp.com/products")
-    setItems1(productse.data)
-    // console.log(item1);
+    setProduct(productse.data)
+
   }
 
   useEffect(() => {
-
+    // filterCate()
     fetchData()
 
   }, [])
@@ -50,7 +47,7 @@ function MenuItems() {
 
         <div className="buton_flex">
           {
-            item.map((elem) => {
+            category.map((elem) => {
               return (
                 <>
                   <div className="bbq">
@@ -70,33 +67,34 @@ function MenuItems() {
 
       </div>
 
-      {
-        show ? <div id='hero'>
-          <div className='Shakes_container'>
+      <div id='hero'>
+        {
+          show ? null : <h1 className='all'>All</h1>
+        }
+        <div className='Shakes_container'>
 
+          {
+            product.map((elem, index) => {
+              return (
+                <>
+                  <Card
+                    id={elem._id}
+                    key={index}
+                    title={elem.name}
+                    image={elem.image}
+                    price={elem.price}
+                    category={elem.category}
+                    className="edit_cart"
 
-            {
-              item1.map((elem, index) => {
-                return (
-                  <>
-                    <Card
-                      id={elem._id}
-                      key={index}
-                      title={elem.name}
-                      image={elem.image}
-                      price={elem.price}
-                      category={elem.category}
-                      className="edit_cart"
+                  />
+                </>
 
-                    />
-                  </>
+              )
+            })
+          }
+        </div>
+      </div>
 
-                )
-              })
-            }
-          </div>
-        </div> : null
-      }
 
 
     </>

@@ -10,10 +10,13 @@ import { useSelector } from 'react-redux';
 
 
 
+
 const Header = () => {
-
-  const orders = useSelector((state)=>state.cartReducer.cardData)
-
+  const totalIte = useSelector((state) => state.incrementNum)
+  // const[numItem,setNumItem] = useState(totalIte)
+  //  console.log(totalIte);
+  // const orders = useSelector((state)=>state.cartReducer.cardData)
+  
   // const userHomePage = async()=>{
   //   try{
   //     const res = await fetch("http://192.168.1.112:4000/getdata",{
@@ -53,7 +56,7 @@ const Header = () => {
         </div>
         <div className="header_btn">
           <p className="left_name">Username</p>
-          <Badge badgeContent={orders.length} color="success" className='badge'>
+          <Badge badgeContent={totalIte} color="success" className='badge'>
           </Badge>
           <Link to="/card" className='cart_a'><ShoppingCartIcon className="left_icon" /></Link>
           <button className="left_btn">Log out</button>

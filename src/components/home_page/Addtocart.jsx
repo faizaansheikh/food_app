@@ -3,19 +3,22 @@ import Header from './Header'
 import axios from 'axios';
 import "./addtocart.css"
 
-import { useDispatch } from 'react-redux';
-import {addCart} from '../Actions/action';
+import { useDispatch, useSelector } from 'react-redux';
+import { addCart, totalItem } from '../Actions/action';
 
 function Addtocart() {
 
   const [product, setProduct] = useState([])
   // const [price,setPrice] = useState(product.price)
 
+  //  console.log(totalIte);
   const dispatch = useDispatch();
 
-const order = ()=>{
-  dispatch(addCart(product))
-}
+  const order = () => {
+    dispatch(addCart(product))
+    dispatch(totalItem())
+  }
+  
   useEffect(() => {
 
     axios
@@ -43,6 +46,7 @@ const order = ()=>{
             <h4 className='num'>{num}</h4>
             <RemoveCircleRoundedIcon className='plus_icon' /> */}
           </div>
+
           <button className='order_btn' onClick={order}>ORDER NOW</button>
         </div>
       </div>

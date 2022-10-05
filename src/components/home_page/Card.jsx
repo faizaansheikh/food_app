@@ -7,7 +7,7 @@ import { useSelector } from 'react-redux';
 import AddCircleRoundedIcon from '@mui/icons-material/AddCircleRounded';
 import RemoveCircleRoundedIcon from '@mui/icons-material/RemoveCircleRounded';
 import { useState } from 'react';
-import {decrement, increment, removeCart} from '../Actions/action';
+import { decrement, getTotalItem, increment, minusTotalItem, removeCart, removetTotalItem, totalItem } from '../Actions/action';
 import { useEffect } from 'react';
 import DeleteIcon from '@mui/icons-material/Delete';
 
@@ -18,19 +18,22 @@ function Card() {
     const [num, setNum] = useState(orders.length)
     const [cart, setCart] = useState([])
     const navigate = useNavigate();
-
-    const remove = (id) => {
-        dispatch(removeCart(id))
-    }
+    const totalIte = useSelector((state) => state.incrementNum)
+    // const remove = (id) => {
+    //     dispatch(removeCart(id))
+    //     // setNum(num - 1)
+    //     // dispatch(removetTotalItem(id))
+    // }
 
     const plus = (id) => {
         dispatch(increment(id))
-        setNum(num + 1)
-
+        // setNum(num + 1)
+        dispatch(totalItem())
     }
     const minus = (id) => {
         dispatch(decrement(id))
-        setNum(num - 1)
+        dispatch(minusTotalItem())
+        // setNum(num - 1)
     }
     const checkOut = async () => {
         const res = await fetch("https://hassanwebsite.herokuapp.com/addOrders", {
@@ -48,10 +51,10 @@ function Card() {
         // },2000)
     }
     useEffect(() => {
-        
         setCart(orders)
+
         // eslint-disable-next-line
-    },  [cart, plus, minus] ) 
+    }, [cart, plus, minus])
 
     return (
         <>
@@ -61,14 +64,14 @@ function Card() {
 
             {orders.length ? (
                 <>
-               
+
                     <h1 className='your_items'>Your Items</h1>
                     <div className="order_now">
                         <div className="total"><h1>Total price : {
                             cart.map(item => item.price * item.countInStock).reduce((total, value) => total + value, 0)
                         }</h1>
                         </div>
-                        <div className='items'><h4>You have {num} items</h4></div>
+                        <div className='items'><h4>You have {totalIte} items</h4></div>
                         <div className="orders_btn"><button className='ord_btn' onClick={checkOut}>Order Now</button></div>
                     </div>
 
@@ -90,7 +93,7 @@ function Card() {
                                                 />
                                             </div>
                                             <h4 className='rs'>Rs : {elem.price * elem.countInStock} </h4>
-                                            <button className='del_ico' onClick={() => remove(elem._id)}><DeleteIcon className='remove_icom' /></button>
+                                            {/* <button className='del_ico' onClick={() => remove(elem._id)}><DeleteIcon className='remove_icom' /></button> */}
                                         </div> <hr />
                                     </>
                                 )
@@ -105,7 +108,7 @@ function Card() {
             ) : (<h1>no items here</h1>)
 
             }
-
+   
         </>
     )
 }

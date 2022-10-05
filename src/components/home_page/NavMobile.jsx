@@ -26,7 +26,7 @@ const NavMobile = () => {
           <Link>About</Link>
           <Link to="/menuitems">Menu</Link>
           <Link>Contact</Link>
-          <Badge badgeContent={orders.length} color="success" className='badge_mob'>
+          <Badge badgeContent="0" color="success" className='badge_mob'>
           </Badge>
            <Link to="/card"> <ShoppingCartIcon fontSize="15px" className="left_icon_mob" /></Link>
            <div className="set_btn_log"><button className="left_btn">Log out</button></div>

@@ -7,22 +7,23 @@ const cartReducer = (state = initialState, action) => {
         case "ADD_TO_CART":
             return {
                 ...state,
-                cardData: [...state.cardData,action.data]
-                
-            } 
-        case "REMOVE_TO_CART":
-            const data = state.cardData.filter((elem) => elem._id !== action.data)
-            return {
-                ...state, cardData: data
+                cardData: [...state.cardData, action.data],
+             
             }
+        // case "REMOVE_TO_CART":
+        //     const data = state.cardData.filter((elem) => elem._id !== action.data)
+        //     return {
+        //         ...state, cardData: data
+        //     }
         case "INCREMENT":
             const incData = state.cardData.map((elem) => {
                 if (elem._id === action.data) {
-                    return { ...elem, countInStock: elem.countInStock + 1}
+                    return { ...elem, countInStock: elem.countInStock + 1 }
                 }
                 return elem
+              
             })
-            return {...state, cardData: incData }
+            return { ...state, cardData: incData}
 
         case "DECREMENT":
             const decData = state.cardData.map((elem) => {
@@ -30,12 +31,16 @@ const cartReducer = (state = initialState, action) => {
                     return { ...elem, countInStock: elem.countInStock - 1 }
                 }
                 return elem
-            }).filter((elem) => elem.countInStock !== -1);
-            return {...state, cardData: decData }
+            }).filter((elem) => elem.countInStock !== 0);
+            return { ...state, cardData: decData }
 
-           
+        // case "ITEMS":
+        //     return {
+        //        totalItems:state.totalItems+=1
+        //     }
+     
 
-            
+
         default:
             return state
     }

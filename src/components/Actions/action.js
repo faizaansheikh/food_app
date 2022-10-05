@@ -23,9 +23,22 @@ export const decrement = (_id)=>{
         data: _id
     }
 }
-export const getTotal = ()=>{
+export const totalItem = ()=>{
     return{
-        type:"GET_TOTAL",
+        type:"ITEMS",
+        
+    }
+}
+// export const removetTotalItem = (_id)=>{
+//     return{
+//         type:"REMOVE_ITEMS",
+//         data: _id
+//     }
+// }
+
+export const minusTotalItem = ()=>{
+    return{
+        type:"MINUS_ITEMS",
         
     }
 }
