@@ -3,7 +3,7 @@ import Header from './Header'
 import axios from 'axios';
 import "./addtocart.css"
 
-import { useDispatch, useSelector } from 'react-redux';
+import { useDispatch} from 'react-redux';
 import { addCart, totalItem } from '../Actions/action';
 
 function Addtocart() {

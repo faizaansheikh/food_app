@@ -4,14 +4,14 @@ import { HiMenuAlt1, HiOutlineX } from "react-icons/hi";
 import ShoppingCartIcon from '@mui/icons-material/ShoppingCart';
 import "./NavMobile.css";
 import { Badge } from '@mui/material';
-import { useSelector } from 'react-redux';
+
 const NavMobile = () => {
   const [sideBar, setSideBar] = useState(false);
 
   const showSideBar = () => {
     setSideBar(!sideBar);
   };
-  const orders = useSelector((state)=>state.cartReducer.cardData)
+  
   return (
     <div className="navmobile">
       <div className="menu_bar" onClick={showSideBar}>

@@ -7,15 +7,14 @@ import { useSelector } from 'react-redux';
 import AddCircleRoundedIcon from '@mui/icons-material/AddCircleRounded';
 import RemoveCircleRoundedIcon from '@mui/icons-material/RemoveCircleRounded';
 import { useState } from 'react';
-import { decrement, getTotalItem, increment, minusTotalItem, removeCart, removetTotalItem, totalItem } from '../Actions/action';
+import { decrement, increment, minusTotalItem, totalItem } from '../Actions/action';
 import { useEffect } from 'react';
-import DeleteIcon from '@mui/icons-material/Delete';
+
 
 function Card() {
     const dispatch = useDispatch();
     // const [total, setTotal] = useState(0)
     const orders = useSelector((state) => state.cartReducer.cardData)
-    const [num, setNum] = useState(orders.length)
     const [cart, setCart] = useState([])
     const navigate = useNavigate();
     const totalIte = useSelector((state) => state.incrementNum)
