@@ -40,12 +40,6 @@ function Addtocart() {
           <h1>{product.name}</h1>
           <p>{product.description}</p>
           <h4>Rs:{product.price}</h4>
-          <div className="increm">
-            {/* <button className='plus_btn'></button> */}
-            {/* <AddCircleRoundedIcon className='plus_icon' />
-            <h4 className='num'>{num}</h4>
-            <RemoveCircleRoundedIcon className='plus_icon' /> */}
-          </div>
 
           <button className='order_btn' onClick={order}>ORDER NOW</button>
         </div>

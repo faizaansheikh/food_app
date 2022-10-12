@@ -41,6 +41,7 @@ export default function Login() {
       } else {
       // localStorage.setItem("jwtoken", token)
         window.alert("registration success")
+        localStorage.setItem("auth", JSON.stringify({ email }))
         console.log("registration success");
         navigate("/home")
       }

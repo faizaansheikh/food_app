@@ -1,5 +1,5 @@
 
-import { Link } from 'react-router-dom';
+import { Link, useNavigate } from 'react-router-dom';
 // import { Link } from 'react-scroll';
 import "./Header.css";
 import img2 from "../images/logo1.png";
@@ -12,30 +12,13 @@ import { useSelector } from 'react-redux';
 
 
 const Header = () => {
+  const navigate = useNavigate()
+  const auth = JSON.parse(localStorage.getItem("auth"))
   const totalIte = useSelector((state) => state.incrementNum)
-  // const[numItem,setNumItem] = useState(totalIte)
-  //  console.log(totalIte);
-  // const orders = useSelector((state)=>state.cartReducer.cardData)
-  
-  // const userHomePage = async()=>{
-  //   try{
-  //     const res = await fetch("http://192.168.1.112:4000/getdata",{
-  //       method:"GET",
-  //       headers:{
-  //         "Content-Type": "application/json"
-  //       },
-  //     })
-  //     const data = await res.json();
-  //     console.log(data);
-  //     // setUserName(data.name)
-
-  //   }catch(err){
-  //     setUserName(err)
-  //   }
-  // }
-  // useEffect(()=>{
-  //   userHomePage()
-  // },[])
+  const logOut = ()=>{
+    localStorage.clear()
+    // navigate("/")
+  }
   return (
     <>
 
@@ -55,11 +38,14 @@ const Header = () => {
 
         </div>
         <div className="header_btn">
-          <p className="left_name">Username</p>
+       
           <Badge badgeContent={totalIte} color="success" className='badge'>
           </Badge>
           <Link to="/card" className='cart_a'><ShoppingCartIcon className="left_icon" /></Link>
-          <button className="left_btn">Log out</button>
+          {
+            auth ?  (<> <p className="left_name">{auth.email}</p> <Link to="/" onClick={logOut}><button className="left_btn">Log out</button></Link> </>):(<Link to="/"><button className="left_btn">Log In</button></Link>)
+          }
+          
         </div>
 
         <div className="header_menu">

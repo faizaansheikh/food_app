@@ -10,11 +10,12 @@ import axios from 'axios';
 function MenuItems() {
   const [category, setCategory] = useState([])
   const [product, setProduct] = useState([])
+  const [filterData, setFilterData] = useState([])
   const [show, setShow] = useState(false)
 
 
   const filterCate = (myCategory) => {
-    const updatedCate = product.filter((element) => {
+    const updatedCate = filterData.filter((element) => {
       return element.category === myCategory
     })
     
@@ -30,6 +31,7 @@ function MenuItems() {
 
     const productse = await axios.get("https://hassanwebsite.herokuapp.com/products")
     setProduct(productse.data)
+    setFilterData(productse.data)
 
   }
 
