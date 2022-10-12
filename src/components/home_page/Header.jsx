@@ -12,7 +12,7 @@ import { useSelector } from 'react-redux';
 
 
 const Header = () => {
-  const navigate = useNavigate()
+ 
   const auth = JSON.parse(localStorage.getItem("auth"))
   const totalIte = useSelector((state) => state.incrementNum)
   const logOut = ()=>{
